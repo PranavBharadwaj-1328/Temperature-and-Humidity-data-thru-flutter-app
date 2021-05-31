@@ -3,16 +3,16 @@ import paho.mqtt.subscribe as subscribe
 import json
 # The ThingSpeak Channel ID.
 # Replace <YOUR-CHANNEL-ID> with your channel ID.
-channelID = "1379680"
-# The write API key for the channel.
+channelID = "1379690"
+# The read API key for the channel.
 # Replace <YOUR-CHANNEL-WRITEAPIKEY> with your write API key.
-readAPIKey = "4509YU9SIR82AAQE"
+readAPIKey = "4509YU9SIR823AAQE"
 # The hostname of the ThingSpeak MQTT broker.
 mqttHost = "mqtt.thingspeak.com"
 # You can use any username.
-mqttUsername = "mwa0000022383501"
+mqttUsername = "mwa0000022183501"
 # Your MQTT API key from Account > My Profile.
-mqttAPIKey = "43GRWC90R8UAF2LE"
+mqttAPIKey = "43GRWC90R8UAG2LE"
 # Create the topic string.
 topic = "channels/" + channelID + "/subscribe/json/" + readAPIKey
 app = Flask(__name__)
