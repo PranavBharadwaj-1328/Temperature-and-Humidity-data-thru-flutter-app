@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
         widget.humid = result.body.split(",")[1];
       });
       print(widget.humid);
-      sleep(Duration(seconds: 4));
+      sleep(Duration(seconds: 5));
     }
   }
 

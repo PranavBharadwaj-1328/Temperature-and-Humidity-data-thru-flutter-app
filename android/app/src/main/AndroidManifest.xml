@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.PB.tempdata.dhtdata">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="Weather Data"
         android:icon="@mipmap/launcher_icon"
