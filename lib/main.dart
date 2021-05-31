@@ -38,7 +38,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Future<void> _getDht() async {
-    var url = Uri.parse("http://192.168.1.104:8080");
+    var url = Uri.parse("http://<your flask server ip>:8080");
     while (true) {
       var result = await http.get(url);
       setState(() {
