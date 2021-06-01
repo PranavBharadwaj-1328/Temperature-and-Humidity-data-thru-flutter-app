@@ -39,11 +39,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Future<void> _getDht() async {
-    var url = Uri.parse("https://api.thingspeak.com/channels/1379680/feeds.json?api_key=4509YU9SIR82AAQE&results=1");
+    var url = Uri.parse(
+        "https://api.thingspeak.com/channels/1379680/feeds.json?api_key=4509YU9SIR82AAQE&results=1");
     while (true) {
       var result = await http.get(url);
-      Map<String,dynamic> feeds = jsonDecode(result.body);
-      Map<String,dynamic> fields = feeds["feeds"][0] ;
+      Map<String, dynamic> feeds = jsonDecode(result.body);
+      Map<String, dynamic> fields = feeds["feeds"][0];
       setState(() {
         widget.temp = fields["field1"];
       });
@@ -71,7 +72,9 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           children: [
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             new Container(
               child: SfRadialGauge(
                 axes: <RadialAxis>[
@@ -87,7 +90,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ], annotations: <GaugeAnnotation>[
                     GaugeAnnotation(
                         widget: Container(
-                            child: Text("Temperature\n     "+widget.temp + "\u2103",
+                            child: Text(
+                                "Temperature\n     " + widget.temp + "\u2103",
                                 style: TextStyle(
                                     fontSize: 25,
                                     fontWeight: FontWeight.bold))),
@@ -97,7 +101,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             new Container(
               child: SfRadialGauge(
                 axes: <RadialAxis>[
@@ -113,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ], annotations: <GaugeAnnotation>[
                     GaugeAnnotation(
                         widget: Container(
-                            child: Text("Humidity\n  "+widget.humid + "%",
+                            child: Text("Humidity\n  " + widget.humid + "%",
                                 style: TextStyle(
                                     fontSize: 25,
                                     fontWeight: FontWeight.bold))),
@@ -123,6 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
+            Text('2021 \u00a9 K Pranav Bharadwaj'), //copyright should remain if used
           ],
         ),
       ),
