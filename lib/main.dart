@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -38,15 +39,17 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Future<void> _getDht() async {
-    var url = Uri.parse("http://<your flask server ip>:8080");
+    var url = Uri.parse("https://api.thingspeak.com/channels/1379680/feeds.json?api_key=4509YU9SIR82AAQE&results=1");
     while (true) {
       var result = await http.get(url);
+      Map<String,dynamic> feeds = jsonDecode(result.body);
+      Map<String,dynamic> fields = feeds["feeds"][0] ;
       setState(() {
-        widget.temp = result.body.split(",")[0];
+        widget.temp = fields["field1"];
       });
       print(widget.temp);
       setState(() {
-        widget.humid = result.body.split(",")[1];
+        widget.humid = fields["field2"];
       });
       print(widget.humid);
       sleep(Duration(seconds: 5));
