@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
         widget.humid = fields["field2"];
       });
       print(widget.humid);
-      sleep(Duration(seconds: 5));
+      //sleep(Duration(seconds: 5));
     }
   }
 
